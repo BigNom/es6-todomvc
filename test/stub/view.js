@@ -1,4 +1,4 @@
-$on(window, 'load', function() {
+(function(window) {
   'use strict'
   window.stubs = window.stubs || {}
   window.stubs.getViewStub = function getViewStub() {
@@ -6,4 +6,4 @@ $on(window, 'load', function() {
       bind: function() {}
     }
   }
-})
+})(window)
