@@ -18,6 +18,8 @@
   "globals": {
     "describe": false,
     "it": false,
-    "expect": false
+    "expect": false,
+    "$on": false,
+    "beforeEach": false,
   }
 }
