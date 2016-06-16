@@ -1,6 +1,6 @@
 require('todomvc-common')
-require('style!css!todomvc-common/base.css')
-require('style!css!todomvc-app-css/index.css')
+require('todomvc-common/base.css')
+require('todomvc-app-css/index.css')
 require('./view')
 require('./helpers')
 require('./controller')
