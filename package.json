@@ -30,7 +30,7 @@
   },
   "scripts": {
     "test": "karma start",
-    "check-coverage": "istanbul check-coverage --statements 22 --branches 5 --functions 1 --lines 22",
+    "check-coverage": "istanbul check-coverage --statements 22 --branches 5 --functions 0 --lines 22",
     "watch:test": "npm test -- --auto-watch --no-single-run",
     "validate": "npm-run-all --parallel lint test --serial check-coverage",
     "start": "http-server",
