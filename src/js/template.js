@@ -1,6 +1,6 @@
 /*jshint laxbreak:true */
-(function (window) {
-  'use strict';
+(function(window) {
+  'use strict'
 
   var htmlEscapes = {
     '&': '&amp;',
@@ -9,20 +9,20 @@
     '"': '&quot;',
     '\'': '&#x27;',
     '`': '&#x60;'
-  };
+  }
 
-  var escapeHtmlChar = function (chr) {
-    return htmlEscapes[chr];
-  };
+  var escapeHtmlChar = function(chr) {
+    return htmlEscapes[chr]
+  }
 
   var reUnescapedHtml = /[&<>"'`]/g,
-    reHasUnescapedHtml = new RegExp(reUnescapedHtml.source);
+    reHasUnescapedHtml = new RegExp(reUnescapedHtml.source)
 
-  var escape = function (string) {
+  var escape = function(string) {
     return (string && reHasUnescapedHtml.test(string))
       ? string.replace(reUnescapedHtml, escapeHtmlChar)
-      : string;
-  };
+      : string
+  }
 
   /**
    * Sets up defaults for all the Template methods such as a default template
@@ -37,7 +37,7 @@
       + '<label>{{title}}</label>'
       + '<button class="destroy"></button>'
       + '</div>'
-      + '</li>';
+      + '</li>'
   }
 
   /**
@@ -57,30 +57,30 @@
 	 *	completed: 0,
 	 * });
    */
-  Template.prototype.show = function (data) {
-    var i, l;
-    var view = '';
+  Template.prototype.show = function(data) {
+    var i, l
+    var view = ''
 
     for (i = 0, l = data.length; i < l; i++) {
-      var template = this.defaultTemplate;
-      var completed = '';
-      var checked = '';
+      var template = this.defaultTemplate
+      var completed = ''
+      var checked = ''
 
       if (data[i].completed) {
-        completed = 'completed';
-        checked = 'checked';
+        completed = 'completed'
+        checked = 'checked'
       }
 
-      template = template.replace('{{id}}', data[i].id);
-      template = template.replace('{{title}}', escape(data[i].title));
-      template = template.replace('{{completed}}', completed);
-      template = template.replace('{{checked}}', checked);
+      template = template.replace('{{id}}', data[i].id)
+      template = template.replace('{{title}}', escape(data[i].title))
+      template = template.replace('{{completed}}', completed)
+      template = template.replace('{{checked}}', checked)
 
-      view = view + template;
+      view = view + template
     }
 
-    return view;
-  };
+    return view
+  }
 
   /**
    * Displays a counter of how many to dos are left to complete
@@ -88,11 +88,11 @@
    * @param {number} activeTodos The number of active todos.
    * @returns {string} String containing the count
    */
-  Template.prototype.itemCounter = function (activeTodos) {
-    var plural = activeTodos === 1 ? '' : 's';
+  Template.prototype.itemCounter = function(activeTodos) {
+    var plural = activeTodos === 1 ? '' : 's'
 
-    return '<strong>' + activeTodos + '</strong> item' + plural + ' left';
-  };
+    return '<strong>' + activeTodos + '</strong> item' + plural + ' left'
+  }
 
   /**
    * Updates the text within the "Clear completed" button
@@ -100,15 +100,15 @@
    * @param  {[type]} completedTodos The number of completed todos.
    * @returns {string} String containing the count
    */
-  Template.prototype.clearCompletedButton = function (completedTodos) {
+  Template.prototype.clearCompletedButton = function(completedTodos) {
     if (completedTodos > 0) {
-      return 'Clear completed';
+      return 'Clear completed'
     } else {
-      return '';
+      return ''
     }
-  };
+  }
 
   // Export to window
-  window.app = window.app || {};
-  window.app.Template = Template;
-})(window);
+  window.app = window.app || {}
+  window.app.Template = Template
+})(window)
