@@ -1,4 +1,5 @@
 /*global qs, qsa, $on, $parent, $delegate */
+/* eslint no-invalid-this: 0 */
 
 (function(window) {
   'use strict'
@@ -170,7 +171,7 @@
     })
   }
 
-  View.prototype.bind = function(event, handler) {
+  View.prototype.bind = function(event, handler) { // eslint-disable-line
     var that = this
     if (event === 'newTodo') {
       $on(that.$newTodo, 'change', function() {
@@ -216,4 +217,4 @@
   // Export to window
   window.app = window.app || {}
   window.app.View = View
-}(window))
+})(window)

@@ -1,4 +1,3 @@
-/*jshint laxbreak:true */
 (function(window) {
   'use strict'
 
@@ -15,13 +14,13 @@
     return htmlEscapes[chr]
   }
 
-  var reUnescapedHtml = /[&<>"'`]/g,
-    reHasUnescapedHtml = new RegExp(reUnescapedHtml.source)
+  var reUnescapedHtml = /[&<>"'`]/g
+  var reHasUnescapedHtml = new RegExp(reUnescapedHtml.source)
 
   var escape = function(string) {
-    return (string && reHasUnescapedHtml.test(string))
-      ? string.replace(reUnescapedHtml, escapeHtmlChar)
-      : string
+    return (string && reHasUnescapedHtml.test(string)) ?
+      string.replace(reUnescapedHtml, escapeHtmlChar) :
+      string
   }
 
   /**
@@ -30,14 +29,13 @@
    * @constructor
    */
   function Template() {
-    this.defaultTemplate
-      = '<li data-id="{{id}}" class="{{completed}}">'
-      + '<div class="view">'
-      + '<input class="toggle" type="checkbox" {{checked}}>'
-      + '<label>{{title}}</label>'
-      + '<button class="destroy"></button>'
-      + '</div>'
-      + '</li>'
+    this.defaultTemplate = '<li data-id="{{id}}" class="{{completed}}">' +
+      '<div class="view">' +
+      '<input class="toggle" type="checkbox" {{checked}}>' +
+      '<label>{{title}}</label>' +
+      '<button class="destroy"></button>' +
+      '</div>' +
+      '</li>'
   }
 
   /**

@@ -1,4 +1,3 @@
-/*jshint eqeqeq:false */
 (function(window) {
   'use strict'
 
@@ -88,7 +87,9 @@
       for (var i = 0; i < todos.length; i++) {
         if (todos[i].id === id) {
           for (var key in updateData) {
-            todos[i][key] = updateData[key]
+            if (updateData.hasOwnProperty(key)) {
+              todos[i][key] = updateData[key]
+            }
           }
           break
         }
@@ -117,7 +118,7 @@
     var todos = data.todos
 
     for (var i = 0; i < todos.length; i++) {
-      if (todos[i].id == id) {
+      if (todos[i].id == id) { // eslint-disable-line
         todos.splice(i, 1)
         break
       }

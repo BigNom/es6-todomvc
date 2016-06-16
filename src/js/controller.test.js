@@ -1,12 +1,12 @@
-import getModelStub from './model.stub'
-import getViewStub from './view.stub'
-import Controller from './controller'
+var Controller = window.app.Controller
+var getModelStub = window.stubs.getModelStub
+var getViewStub = window.stubs.getViewStub
 
 describe('controller', () => {
   it('can be created', () => {
-    const view = getViewStub()
-    const model = getModelStub()
-    const controller = new Controller(model, view)
+    var view = getViewStub()
+    var model = getModelStub()
+    var controller = new Controller(model, view)
     expect(controller).to.exist
   })
 })
